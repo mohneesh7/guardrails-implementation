@@ -1,11 +1,11 @@
 from guardrails import Guard, OnFailAction
 from guardrails.hub import (
-    BertToxic,
+    ToxicLanguage,
     CompetitorCheck
 )
 
 guard = Guard(name="comp-toxic").use_many(
-    BertToxic(
+    ToxicLanguage(
         threshold=0.5,
         validation_method="sentence",
         on_fail=OnFailAction.EXCEPTION
